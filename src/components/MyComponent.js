@@ -13,10 +13,16 @@ class MyComponent extends React.Component {
         ]
     }
 
+    handleAddUser = (userObj) => {
+        this.setState({
+            listUser: [userObj, ...this.state.listUser]
+        })
+    }
+
     render() {
         return (
             <div>
-                <UserInfo></UserInfo>
+                <UserInfo handleAddUser={this.handleAddUser}></UserInfo>
                 <DisplayInfo listUser={this.state.listUser}></DisplayInfo>
             </div >
         );
